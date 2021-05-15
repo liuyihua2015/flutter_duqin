@@ -1,3 +1,8 @@
+import 'package:duqin/View/root_pages/home_page.dart';
+import 'package:duqin/View/root_pages/music_page.dart';
+import 'package:duqin/View/root_pages/profile_page.dart';
+import 'package:duqin/View/root_pages/tiny_video_page.dart';
+import 'package:duqin/config/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class RootPage extends StatefulWidget {
@@ -16,6 +21,16 @@ const Map<String, String> _bottomNames = {
 class _RootPageState extends State<RootPage> {
   //当前导航页索引
   int _currentIndex = 0;
+
+  //页面集合
+  final List<Widget> _pages = [
+    HomePage(),
+    MusicPage(),
+    Container(),
+    TinyAideoPage(),
+    ProfilePage(),
+  ];
+
   //底部导航树数组
   final List<BottomNavigationBarItem> _bottomNavBarlist = [];
 
@@ -42,9 +57,7 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("首页"),
-      ),
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: _bottomNavBarlist,
         currentIndex: _currentIndex,
@@ -68,7 +81,8 @@ class _RootPageState extends State<RootPage> {
           width: 24,
           height: 24,
         ),
-        label: value);
+        label: value,
+        tooltip: '');
   }
 }
 
@@ -79,6 +93,7 @@ Widget _createMediaButton() {
     height: 44,
     margin: EdgeInsets.only(top: 56),
     child: FloatingActionButton(
+      backgroundColor: AppColors.nav,
       onPressed: _onCreateMedia,
       child: Image.asset(
         'assets/images/icons/create_media.png',

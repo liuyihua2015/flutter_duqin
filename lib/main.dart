@@ -1,3 +1,4 @@
+import 'package:duqin/config/app_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'transit_page.dart';
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: themeData,
       home: TransitPage(),
     );
   }
