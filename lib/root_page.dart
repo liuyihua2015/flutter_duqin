@@ -30,6 +30,10 @@ class _RootPageState extends State<RootPage> {
 
   //底部切换
   void _onTapClick(int index) {
+    if (index == 2) {
+      return _onCreateMedia();
+    }
+
     setState(() {
       _currentIndex = index;
     });
