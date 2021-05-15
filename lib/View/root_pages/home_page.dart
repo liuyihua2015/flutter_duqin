@@ -1,3 +1,4 @@
+import 'package:duqin/View/sub_pages/song_page.dart';
 import 'package:duqin/components/root_page_head.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ const List<Tab> _tabs = [
 ];
 
 final List<Widget> _tabsContent = [
-  Text('111111'),
+  SongPage(),
   Text('222222'),
   Text('333333'),
   Text('444444'),
@@ -42,6 +43,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
     _tabController =
         TabController(initialIndex: 1, length: _tabs.length, vsync: this);
 
