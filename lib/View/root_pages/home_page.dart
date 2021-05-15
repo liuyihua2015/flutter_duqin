@@ -1,3 +1,4 @@
+import 'package:duqin/components/root_page_head.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,7 +42,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController =
+        TabController(initialIndex: 1, length: _tabs.length, vsync: this);
+
+    //监听切换
+    // _tabController.addListener(() {
+    //   print(_tabController.index);
+    // });
   }
 
   @override
@@ -54,7 +61,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('首页'),
+        title: RootPageHead(),
         bottom: TabBar(
           tabs: _tabs,
           controller: _tabController,
