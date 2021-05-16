@@ -1,6 +1,9 @@
+import 'package:duqin/config/app_colors.dart';
 import 'package:duqin/models/song_model.dart';
 import 'package:duqin/utils/util.dart';
 import 'package:flutter/material.dart';
+
+import 'avatar_role_name.dart';
 
 class SongCard extends StatelessWidget {
   final SongItem songItem;
@@ -14,11 +17,16 @@ class SongCard extends StatelessWidget {
       child: Row(
         children: [
           _songCover(),
+          SizedBox(
+            width: 8,
+          ),
+          _songContent(),
         ],
       ),
     );
   }
 
+//封面
   Widget _songCover() {
     return SizedBox(
       width: 75,
@@ -41,8 +49,48 @@ class SongCard extends StatelessWidget {
               height: 30,
               color: Colors.white,
             ),
-          )
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _songContent() {
+    return Expanded(
+      child: SizedBox(
+        height: 75,
+        child: Stack(
+          children: [
+            Text(
+              songItem.cnName,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: AppColors.active, fontSize: 16),
+            ),
+            Positioned(
+                top: 25,
+                child: Text(
+                  songItem.enName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: AppColors.un3active, fontSize: 14),
+                )),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 110,
+                    child: AvatarRoleName(
+                      avatarUrl: songItem.userEntity.coverPictureUrl,
+                      nickName: songItem.userEntity.nickname,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
