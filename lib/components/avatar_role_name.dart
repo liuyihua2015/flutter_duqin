@@ -1,4 +1,5 @@
 import 'package:duqin/config/app_colors.dart';
+import 'package:duqin/utils/user_type.dart';
 import 'package:flutter/material.dart';
 
 class AvatarRoleName extends StatelessWidget {
@@ -56,11 +57,11 @@ class AvatarRoleName extends StatelessWidget {
       margin: EdgeInsets.only(left: 6),
       padding: EdgeInsets.symmetric(vertical: 2, horizontal: 3),
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: UserType.fromColor(type),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Text(
-        type ?? '未知',
+        UserType.fromCn(type) ?? '未知',
         style: TextStyle(color: Colors.white, fontSize: 10),
       ),
     );

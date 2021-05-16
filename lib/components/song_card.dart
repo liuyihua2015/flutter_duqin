@@ -4,6 +4,7 @@ import 'package:duqin/utils/util.dart';
 import 'package:flutter/material.dart';
 
 import 'avatar_role_name.dart';
+import 'comment_like_read.dart';
 
 class SongCard extends StatelessWidget {
   final SongItem songItem;
@@ -84,8 +85,17 @@ class SongCard extends StatelessWidget {
                     child: AvatarRoleName(
                       avatarUrl: songItem.userEntity.coverPictureUrl,
                       nickName: songItem.userEntity.nickname,
+                      // type: songItem.userEntity.type,
+                      // showType: true,
                     ),
-                  )
+                  ),
+                  Expanded(
+                    child: CommentListRead(
+                      commentCount: songItem.commentCount,
+                      thumbUpCount: songItem.thumbUpCount,
+                      readCount: songItem.readCount,
+                    ),
+                  ),
                 ],
               ),
             )
