@@ -11,7 +11,7 @@ double toRpx({double size = 0, double width = 750}) {
   return size * rpx;
 }
 
-//数字转为12
+//数字转为万
 String formatCharCount(int count) {
   if (count == null || count <= 0 || count.isNaN) {
     return '0';
