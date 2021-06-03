@@ -36,6 +36,8 @@ dev_dependencies:
   # http 请求库
   dio: ^4.0.0
   get: ^4.1.4
+  #下拉刷新控件
+  flutter_easyrefresh: ^2.2.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

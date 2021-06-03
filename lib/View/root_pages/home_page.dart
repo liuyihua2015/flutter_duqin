@@ -1,3 +1,4 @@
+import 'package:duqin/View/sub_pages/singer_page.dart';
 import 'package:duqin/View/sub_pages/song_page.dart';
 import 'package:duqin/components/root_page_head.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +31,8 @@ const List<Tab> _tabs = [
 
 final List<Widget> _tabsContent = [
   SongPage(),
-  Text('222222'),
   Text('333333'),
+  SingerPage(),
   Text('444444'),
   Text('555555'),
   Text('666666'),

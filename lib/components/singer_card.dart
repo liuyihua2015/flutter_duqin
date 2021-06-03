@@ -23,6 +23,7 @@ class SingerCard extends StatelessWidget {
         AspectRatio(
           aspectRatio: 1 / 1,
           child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
             child: FadeInImage.assetNetwork(
               placeholder: 'assets/images/common/lazy-1.png',
               image: coverPictureUrl,
@@ -43,12 +44,12 @@ class SingerCard extends StatelessWidget {
           children: [
             iconText(
               count: musicCount,
-              title: "歌曲",
+              title: " 歌曲",
               imageUrl: 'assets/images/icons/read.png',
             ),
             iconText(
               count: musicPlayCount,
-              title: "",
+              title: "播放",
               imageUrl: 'assets/images/icons/read.png',
             )
           ],
